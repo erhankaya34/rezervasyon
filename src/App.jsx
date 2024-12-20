@@ -132,14 +132,19 @@ const confirmAppointment = async () => {
   const monthYear = selectedDate.toLocaleDateString("tr-TR", { month: "long", year: "numeric" });
 
   // Musait olmayan günleri kontrol et
+  // Musait olmayan günleri kontrol et
   const isUnavailableDate = (day) => {
     return (
       day &&
-      unavailableDates.some(
+      (unavailableDates.some(
         (unavailableDate) => unavailableDate.toDateString() === day.toDateString()
+      ) || 
+      // 23 Aralık öncesi ve 6 Ocak sonrası günleri kapalı yap
+      (day < new Date(2024, 11, 23) || day > new Date(2025, 0, 6))
       )
     );
   };
+
 
   // Seçilen güne uygun saatler
   const getAvailableTimesForSelectedDate = () => {
