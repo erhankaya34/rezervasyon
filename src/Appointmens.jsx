@@ -84,12 +84,12 @@ function Appointments({ userInfo, appointments, setAppointments, selectedDate, a
 
   const formattedDate = selectedDate.toLocaleDateString('tr-TR');
   const filteredAppointments = appointments.filter((appointment) => {
-    if (userInfo.username === 'admin' && showAllAppointments) {
+    if (userInfo.username === 'tesseractadmin' && showAllAppointments) {
       // Tüm randevuları göster
       return true;
     }
-    if (userInfo.username === 'admin') {
-      // Admin ve seçili tarihteki randevuları göster
+    if (userInfo.username === 'tesseractadmin') {
+      // tesseractadmin ve seçili tarihteki randevuları göster
       return appointment.date === formattedDate;
     }
     // Kullanıcıya ait randevuları göster
@@ -99,9 +99,9 @@ function Appointments({ userInfo, appointments, setAppointments, selectedDate, a
   return (
     <div className="p-6 font-sans">
       <h1 className="text-2xl font-bold text-center mb-6">
-        {userInfo.username === 'admin' ? 'Tüm Randevular' : 'Randevularınız'}
+        {userInfo.username === 'tesseractadmin' ? 'Tüm Randevular' : 'Randevularınız'}
       </h1>
-      {userInfo.username === 'admin' && (
+      {userInfo.username === 'tesseractadmin' && (
         <div className="text-center mb-4">
           <button
             className={`px-6 py-3 rounded ${
@@ -113,7 +113,7 @@ function Appointments({ userInfo, appointments, setAppointments, selectedDate, a
           </button>
         </div>
       )}
-      {userInfo.username === 'admin' && (
+      {userInfo.username === 'tesseractadmin' && (
         <div className="text-center mb-4">
           <button
             className="px-6 py-3 rounded bg-green-500 text-white hover:bg-green-700 transition-all duration-200"
