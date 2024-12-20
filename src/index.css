@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (max-width: 500px) {
+	.grid-cols-7 {
+	  grid-template-columns: repeat(7, 1);
+	  font-size: 0.75rem;
+	}
+  
+	.grid-cols-7 button {
+	  padding: 5px;
+	  font-size: 0.75rem;
+	}
+  
+	.min-width-50px {
+	  min-width: 30px; /* 400px'den küçük ekranlar için butonlar küçülsün */
+	}
+  
+	.w-full {
+	  width: 100%; /* Butonlar küçük ekranlarda tam genişlikte olacak */
+	}
+  }
