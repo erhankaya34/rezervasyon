@@ -78,6 +78,26 @@ function Appointments({ userInfo, appointments, setAppointments, selectedDate, a
     }
   };
 
+  const handleLogDownload = async () => {
+    try {
+      const response = await fetch(apiUrl + 'export_logs');
+      if (!response.ok) {
+        throw new Error('Log dosyası indirilemedi!');
+      }
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'appointments_logs.txt');
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
   useEffect(() => {
     fetchAppointments();
   }, [userInfo.username]);
@@ -95,9 +115,8 @@ function Appointments({ userInfo, appointments, setAppointments, selectedDate, a
     // Kullanıcıya ait randevuları göster
     return appointment.username === userInfo.username
   });
-
   return (
-    <div className="p-6 font-sans">
+    <div className="p-6 font-sans max-w-4xl mx-auto p-6 bg-white border border-gray-200 bg-white/90">
       <h1 className="text-2xl font-bold text-center mb-6">
         {userInfo.username === 'tesseractadmin' ? 'Tüm Randevular' : 'Randevularınız'}
       </h1>
@@ -105,7 +124,7 @@ function Appointments({ userInfo, appointments, setAppointments, selectedDate, a
         <div className="text-center mb-4">
           <button
             className={`px-6 py-3 rounded ${
-              showAllAppointments ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'
+              showAllAppointments ? 'bg-blue-500 text-white' : 'bg-blue-500 text-white'
             } hover:bg-blue-700 hover:text-white transition-all duration-200`}
             onClick={() => setShowAllAppointments((prev) => !prev)}
           >
@@ -114,14 +133,24 @@ function Appointments({ userInfo, appointments, setAppointments, selectedDate, a
         </div>
       )}
       {userInfo.username === 'tesseractadmin' && (
-        <div className="text-center mb-4">
-          <button
-            className="px-6 py-3 rounded bg-green-500 text-white hover:bg-green-700 transition-all duration-200"
-            onClick={handleDownload}
-          >
-            Randevuları İndir
-          </button>
-        </div>
+        <>
+          <div className="text-center mb-4">
+            <button
+              className="px-6 py-3 rounded bg-green-500 text-white hover:bg-green-700 transition-all duration-200"
+              onClick={handleDownload}
+            >
+              Randevuları İndir
+            </button>
+          </div>
+          <div className="text-center mb-4">
+            <button
+              className="px-6 py-3 rounded bg-yellow-500 text-white hover:bg-yellow-700 transition-all duration-200"
+              onClick={handleLogDownload}
+            >
+              Logları İndir
+            </button>
+          </div>
+        </>
       )}
       <div className="mt-8 mx-auto max-w-full sm:max-w-md">
         {filteredAppointments.length === 0 ? (
@@ -135,7 +164,7 @@ function Appointments({ userInfo, appointments, setAppointments, selectedDate, a
             {filteredAppointments.map((appointment, index) => (
               <li
                 key={index}
-                className="bg-white p-4 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-all duration-200"
+                className="bg-white/30 p-4 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-all duration-200"
               >
                 <div className="flex flex-col sm:flex-row justify-between items-start items-center sm:space-x-4">
                   <div>

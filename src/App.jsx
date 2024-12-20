@@ -165,14 +165,14 @@ const confirmAppointment = async () => {
 
 
   return (
-    <div className="p-6 font-sans">
+    <div className="max-w-4xl mx-auto p-6 bg-white border border-gray-200 bg-white/90">
       <h1 className="text-2xl font-bold text-center mb-6">Rezervasyon Sistemi</h1>
       <h2 className="text-lg text-center mb-6" style={{ fontFamily: 'Inter', fontWeight: 'bold', fontStyle: 'normal' }}>
         {userInfo.name}
       </h2>
   
       {/* Takvim ve Saat Seçimi Alanı */}
-      <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg border border-gray-200">
+      <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg border border-gray-200 bg-white/50">
         {/* Gün seçimi */}
         <div className="flex flex-col sm:flex-row justify-center items-center mb-6">
           {/* Ay Önceki Butonu */}
@@ -214,14 +214,14 @@ const confirmAppointment = async () => {
               onClick={() => !disabled && day && !isUnavailableDate(day) && setSelectedDate(day)}
               className={`px-4 py-2 rounded-lg border border-gray-300 text-center ${
                 day && day.toDateString() === selectedDate.toDateString()
-                  ? "bg-blue-500 text-white"
+                  ? "bg-blue-600 text-white"
                   : "bg-white-100 hover:bg-gray-200"
               } ${
                 disabled
                   ? "bg-gray-100 cursor-not-allowed text-gray-300 hover:bg-gray-100 border-gray-100"
                   : isUnavailableDate(day)
                   ? "bg-gray-200 cursor-not-allowed text-gray-500 "
-                  : ""
+                  : "bg-white"
               } w-full sm:w-auto`}
               disabled={disabled || isUnavailableDate(day)}
             >
