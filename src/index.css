@@ -22,14 +22,3 @@
 	}
   }
 
-  #root {
-	margin: 0;
-	padding: 0;
-	background-image: url('/background.png'); /* Arka plan görseli */
-	background-size: auto 100%; /* Görselin yüksekliğini 100% yapar, genişliği orantılı kalır */
-	background-position: center; /* Arka planı merkezde sabitle */
-	background-repeat: no-repeat;
-	min-height: 100vh; /* Tüm ekran yüksekliği */
-	position: relative; /* Overlay için gerekli */
-}
-

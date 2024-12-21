@@ -214,14 +214,14 @@ const confirmAppointment = async () => {
               onClick={() => !disabled && day && !isUnavailableDate(day) && setSelectedDate(day)}
               className={`px-4 py-2 rounded-lg border border-gray-300 text-center ${
                 day && day.toDateString() === selectedDate.toDateString()
-                  ? "bg-blue-600 text-white"
+                  ? "bg-blue-500 text-white"
                   : "bg-white-100 hover:bg-gray-200"
               } ${
                 disabled
                   ? "bg-gray-100 cursor-not-allowed text-gray-300 hover:bg-gray-100 border-gray-100"
                   : isUnavailableDate(day)
                   ? "bg-gray-200 cursor-not-allowed text-gray-500 "
-                  : "bg-white"
+                  : ""
               } w-full sm:w-auto`}
               disabled={disabled || isUnavailableDate(day)}
             >
