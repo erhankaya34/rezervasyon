@@ -18,13 +18,13 @@ function App({ userInfo , setUserInfo, appointments, setAppointments , selectedD
     // Haftaiçi (30 Aralık-3 Ocak)
     "2024-12-30": ["17:00-18:30", "18:30-20:00", "20:30-22:00"], // 30 Aralık
     "2024-12-31": [], // 31 Aralık - Yılbaşı sebebiyle çekim yok
-    "2024-01-01": [], // 1 Ocak - Yılbaşı sebebiyle çekim yok
-    "2024-01-02": ["17:00-18:30", "18:30-20:00", "20:30-22:00"], // 2 Ocak
-    "2024-01-03": ["17:00-18:30", "18:30-20:00", "20:30-22:00"], // 3 Ocak
+    "2025-01-01": [], // 1 Ocak - Yılbaşı sebebiyle çekim yok
+    "2025-01-02": ["17:00-18:30", "18:30-20:00", "20:30-22:00"], // 2 Ocak
+    "2025-01-03": ["17:00-18:30", "18:30-20:00", "20:30-22:00"], // 3 Ocak
   
     // Haftasonu (4-5 Ocak)
-    "2024-01-04": ["11:00-12:30", "12:30-14:00", "14:30-16:00", "16:00-17:30", "18:00-19:30", "19:30-21:00"], // 4 Ocak
-    "2024-01-05": ["11:00-12:30", "12:30-14:00", "14:30-16:00", "16:00-17:30", "18:00-19:30", "19:30-21:00"], // 5 Ocak
+    "2025-01-04": ["11:00-12:30", "12:30-14:00", "14:30-16:00", "16:00-17:30", "18:00-19:30", "19:30-21:00"], // 4 Ocak
+    "2025-01-05": ["11:00-12:30", "12:30-14:00", "14:30-16:00", "16:00-17:30", "18:00-19:30", "19:30-21:00"], // 5 Ocak
   
     default: ["10:00-12:00", "12:00-14:00", "15:00-17:00", "17:00-19:00", "19:00-21:00"], // Varsayılan saatler
   };
@@ -33,7 +33,8 @@ function App({ userInfo , setUserInfo, appointments, setAppointments , selectedD
   const unavailableDates = [
     new Date(2024, 11, 24), // 24 Aralık - Gelibolu seyahati
     new Date(2024, 11, 31), // 31 Aralık - Yılbaşı
-    new Date(2024, 0, 1),   // 1 Ocak - Yılbaşı
+    new Date(2025, 0, 1),
+    new Date(2025, 0, 6),   // 1 Ocak - Yılbaşı
   ];
   
 
@@ -258,6 +259,15 @@ const confirmAppointment = async () => {
           >
             Randevuyu Onayla
           </button>
+          <div className="text-center mt-4">
+      <h1 className="text-xl mb-1">Çekim Lokasyonu</h1>
+            <p className="text-sm text-gray-500">
+              BAU Galata Kampüsü <br />
+              Müeyyetzade Mahallesi, Kemeraltı Caddesi, <br />
+              Karaoğlan Sokağı No: 24/A <br />
+              34425 Galata, Karaköy, Beyoğlu, İstanbul
+            </p>
+          </div>
         </div>
       </div>
     </div>
