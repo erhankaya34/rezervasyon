@@ -32,6 +32,11 @@ function App({ userInfo , setUserInfo, appointments, setAppointments , selectedD
   // Musait olmayan günler
   const unavailableDates = [
     new Date(2024, 11, 24), // 24 Aralık - Gelibolu seyahati
+    new Date(2024, 11, 23),
+    new Date(2024, 11, 25),
+    new Date(2024, 11, 26),
+    new Date(2024, 11, 27),
+    new Date(2024, 11, 30),
     new Date(2024, 11, 31), // 31 Aralık - Yılbaşı
     new Date(2025, 0, 1),
     new Date(2025, 0, 6),   // 1 Ocak - Yılbaşı

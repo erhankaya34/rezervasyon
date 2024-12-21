@@ -9,7 +9,7 @@ import "./index.css"; // Tailwind CSS burada ekleniyor
 function Main() {
   const [userInfo, setUserInfo] = useState(null); // Başlangıçta null olarak ayarla
   const [appointments, setAppointments] = useState([]); // Randevular listesi
-  const [selectedDate, setSelectedDate] = useState(new Date()); // Seçili gün
+  const [selectedDate, setSelectedDate] = useState(new Date(2024, 11, 28)); // Seçili gün
   const apiUrl = "https://api.chikitabot.net:58731/erhankaya/"; // API URL'si
 
   const handleLogin = (user) => {
